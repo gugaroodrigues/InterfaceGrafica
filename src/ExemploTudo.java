@@ -74,6 +74,7 @@ public class ExemploTudo implements JFrameBaseInterface {
         jButton01.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                new exemplo07.ExemploJRadioButton01Principal();
             }
         });
     }
