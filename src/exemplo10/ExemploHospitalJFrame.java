@@ -55,6 +55,7 @@ public class ExemploHospitalJFrame implements JFrameBaseInterface {
         configurarJFormattedTextField();
         AcaoAdicionar();
         AcaoEditar();
+        AcaoExcluir();
         jFrame.setVisible(true);
     }
 
@@ -268,7 +269,28 @@ public class ExemploHospitalJFrame implements JFrameBaseInterface {
                jFormattedTextFieldCNPJ.setText(hospital.getCnpj());
            }
            
-          
+    private void AcaoExcluir(){
+        jButtonExcluir.addActionListener(new ActionListener() {
+            
+            
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (jTable.getSelectedRow() == -1){
+                    JOptionPane.showMessageDialog(null, "Selecione um registro");
+                    return;
+                }
+                int escolha = JOptionPane.showConfirmDialog(null, 
+                    "Deseja realmente apagar?", "Aviso",
+                    JOptionPane.YES_NO_CANCEL_OPTION );
+            
+                if (escolha == JOptionPane.YES_OPTION)
+                linhaSelecionada = jTable.getSelectedRow();
+                dtm.removeRow(linhaSelecionada);
+                hospitais.remove(linhaSelecionada);
+                limparCampos();
+            }
+        });
+    }
 }
 
 
