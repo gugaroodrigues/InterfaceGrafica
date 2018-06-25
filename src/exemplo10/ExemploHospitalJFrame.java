@@ -237,6 +237,7 @@ public class ExemploHospitalJFrame implements JFrameBaseInterface {
                 jComboBoxCategoria.setSelectedIndex(-1);
                 jFormattedTextFieldCNPJ.setText("");
                 jTextFieldNome.requestFocus();
+                linhaSelecionada = -1;
             }
     
     private void AcaoEditar(){
@@ -252,7 +253,7 @@ public class ExemploHospitalJFrame implements JFrameBaseInterface {
 
        });
     }
-           private void preencherCampos(Hospital hospital) {
+    private void preencherCampos(Hospital hospital) {
                jTextFieldNome.setText(hospital.getNome());
                jTextFieldAno.setText(
                   String.valueOf(hospital.getAno())
@@ -266,6 +267,8 @@ public class ExemploHospitalJFrame implements JFrameBaseInterface {
                );
                jFormattedTextFieldCNPJ.setText(hospital.getCnpj());
            }
+           
+          
 }
 
 
