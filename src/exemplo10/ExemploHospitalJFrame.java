@@ -9,6 +9,7 @@ import exemplo08.JFrameBaseInterface;
 import java.awt.Frame;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
@@ -97,7 +98,7 @@ public class ExemploHospitalJFrame implements JFrameBaseInterface {
         jLabelNome = new JLabel("Nome");
         jLabelRendaAnual = new JLabel("Renda Anual");
         jCheckBoxPrivado = new JCheckBox("Privado");
-        jButtonAdicionar = new JButton("Adicionar");
+        jButtonAdicionar = new JButton("Salvar");
         jButtonEditar = new JButton("Editar");
         jButtonExcluir = new JButton("Excluir");
         jComboBoxCategoria = new JComboBox();
@@ -196,15 +197,106 @@ public class ExemploHospitalJFrame implements JFrameBaseInterface {
 
             @Override
             public void actionPerformed(ActionEvent e) {
+                if (jTextFieldNome.getText().trim().isEmpty()){
+                    JOptionPane.showMessageDialog(null, 
+                            "Nome deve ser preenchido");
+                    jTextFieldNome.requestFocus();
+                    return;
+                }
+                
+                if (jTextFieldNome.getText().trim().isEmpty()){
+                    JOptionPane.showMessageDialog(null, 
+                            "Nome deve conter no minimo 3 caracteres");
+                    jTextFieldNome.requestFocus();
+                    return;
+                }
+                if (jTextFieldAno.getText().trim().isEmpty()){
+                    JOptionPane.showMessageDialog(null, 
+                            "Ano deve ser preenchido");
+                    jTextFieldAno.requestFocus();
+                    return;
+                }
+                short ano = 0;
+                
+                try{
+                    ano = Short.parseShort(jTextFieldAno.getText().trim());
+                    if(ano < 1500){
+                        JOptionPane.showMessageDialog(null, 
+                                "Ano nao pode ser menor que 1500");
+                        jTextFieldAno.requestFocus();
+                        return;
+                    }
+                    int anoAtual = LocalDate.now().getYear();
+                    if(ano > anoAtual){
+                        JOptionPane.showMessageDialog(null, 
+                                "Ano nao deve ser maior que o ano " + anoAtual);
+                        jTextFieldAno.requestFocus();
+                        return;
+                    }
+                }catch(NumberFormatException ex){
+                    JOptionPane.showMessageDialog(null, 
+                            "Ano deve conter somente números");
+                    jTextFieldAno.requestFocus();
+                    return;
+                }
+                String cnpj = jFormattedTextFieldCNPJ.getText()
+                        .replace(".", "").replace("/", "").replace("-", "");
+                
+                if (cnpj.length() <14){
+                    JOptionPane.showMessageDialog(null, 
+                            "CNPJ deve ser preenchido");
+                    jFormattedTextFieldCNPJ.requestFocus();
+                    return;
+                }
+                if (jFormattedTextFieldCNPJ.getText().isEmpty()){
+                    JOptionPane.showMessageDialog(null, 
+                            "CNPJ der ser preenchido");
+                    jFormattedTextFieldCNPJ.requestFocus();
+                    return;
+                }
+                
+                //if (jComboBoxCategoria.getSelectedIndex() == -1)
+                if(jComboBoxCategoria.getSelectedItem() == null){
+                    JOptionPane.showMessageDialog(null, 
+                            "Categoria deser selecionada");
+                    jComboBoxCategoria.showPopup();
+                    return;
+                }
+                
+                String rendaAnualTexto = jTextFieldRendaAnual
+                        .getText().trim().toUpperCase().replace("R", "")
+                        .replace("$", "").replace(".", "").replace(",", "")
+                        .replace(" ", "");
+                if(rendaAnualTexto.isEmpty()){
+                    JOptionPane.showMessageDialog(null, 
+                            "Renda Anul deve ser preechida");
+                    jTextFieldRendaAnual.requestFocus();
+                    return;
+                }
+                
+                double rendaAnual = 0;
+                try{
+                    rendaAnual = Double.parseDouble(rendaAnualTexto);
+                    if(rendaAnual < 0){
+                        JOptionPane.showMessageDialog(null,
+                        "Renda Anual deve ser positiva");
+                    jTextFieldRendaAnual.requestFocus();
+                    return;
+                    }
+                    
+                }catch(NumberFormatException ex){
+                    JOptionPane.showMessageDialog(null, 
+                            "Renda Anual deve conter somente números");
+                    jTextFieldRendaAnual.requestFocus();
+                    return;
+                    
+                }
+                
                 Hospital hospital = new Hospital();
                 hospital.setNome(jTextFieldNome.getText());
-                hospital.setCnpj(jFormattedTextFieldCNPJ.getText());
-                hospital.setRendaAnual(Double.parseDouble(
-                   jTextFieldRendaAnual.getText()
-                ));
-                hospital.setAno(Short.parseShort(
-                   jTextFieldAno.getText()
-                ));
+                hospital.setCnpj(cnpj);
+                hospital.setRendaAnual(rendaAnual);
+                hospital.setAno(ano);
                 hospital.setPrivado(jCheckBoxPrivado.isSelected());
                 hospital.setCategoria(
                    jComboBoxCategoria.getSelectedItem().toString()
@@ -222,7 +314,12 @@ public class ExemploHospitalJFrame implements JFrameBaseInterface {
                     dtm.setValueAt(hospital.getCnpj(), linhaSelecionada, 1);
                     dtm.setValueAt(hospital.getRendaAnual(), linhaSelecionada, 2);
                 }
+                
+                
+             
                 limparCampos();
+                
+                
                 
                 
             }

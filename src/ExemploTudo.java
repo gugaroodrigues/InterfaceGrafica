@@ -11,6 +11,7 @@ import exemplo08.ExemploCheckBox01;
 import exemplo08.JFrameBaseInterface;
 import exemplo09.ExemploJTable01;
 import exemplo10.ExemploHospitalJFrame;
+import exemplo11.ExemploJFrameKeyPressed;
 import exemplo08.JFrameBaseInterface;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -40,6 +41,7 @@ public class ExemploTudo implements JFrameBaseInterface {
     private JButton jButton08;
     private JButton jButton09;
     private JButton jButton10;
+    private JButton jButton11;
 
     public ExemploTudo() {
         gerarTela();
@@ -57,6 +59,7 @@ public class ExemploTudo implements JFrameBaseInterface {
         acaoJButton08();
         acaoJButton09();
         acaoJButton10();
+        acaoJButton11();
         adicionarComponentes();
         jFrame.setVisible(true);
     }
@@ -85,6 +88,7 @@ public class ExemploTudo implements JFrameBaseInterface {
         jFrame.add(jButton08);
         jFrame.add(jButton09);
         jFrame.add(jButton10);
+        jFrame.add(jButton11);
         
     }
 
@@ -101,6 +105,7 @@ public class ExemploTudo implements JFrameBaseInterface {
         jButton08 = new JButton("Exemplo 08");
         jButton09 = new JButton("Exemplo 09");
         jButton10 = new JButton("Exemplo 10");
+        jButton11 = new JButton("Exemplo 11");
 
     }
 
@@ -118,7 +123,7 @@ public class ExemploTudo implements JFrameBaseInterface {
         jButton08.setLocation(10, 230);
         jButton09.setLocation(120, 230);
         jButton10.setLocation(230, 230);
- //        jButton11.setLocation(340, 230);
+        jButton11.setLocation(340, 230);
         
     }
 
@@ -136,6 +141,7 @@ public class ExemploTudo implements JFrameBaseInterface {
         jButton08.setSize(100, 100);
         jButton09.setSize(100, 100);
         jButton10.setSize(100, 100);
+        jButton11.setSize(100, 100);
         
     }
 
@@ -235,6 +241,14 @@ public class ExemploTudo implements JFrameBaseInterface {
             @Override
             public void actionPerformed(ActionEvent e) {
                 new exemplo10.ExemploHospitalJFrame();
+            }
+        });
+    }
+    public void acaoJButton11() {
+        jButton11.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                new exemplo11.ExemploJFrameKeyPressed();
             }
         });
     }
