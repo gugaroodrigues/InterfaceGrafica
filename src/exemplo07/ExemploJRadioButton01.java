@@ -50,7 +50,7 @@ public class ExemploJRadioButton01 {
         jFrame.setSize(500, 500);
         jFrame.setLayout(null);
         jFrame.setLocationRelativeTo(null);
-        jFrame.setDefaultCloseOperation(EXIT_ON_CLOSE);
+        jFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         
     }
 

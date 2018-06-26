@@ -34,7 +34,7 @@ public class ExemploJTextArea {
         jFrame = new JFrame("Exemplo JTextArea");
         jFrame.setSize(500,500);
         jFrame.setLayout(null);
-        jFrame.setDefaultCloseOperation(jFrame.EXIT_ON_CLOSE);
+        jFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         jFrame.setLocationRelativeTo(null);
     }
     

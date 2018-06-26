@@ -1,4 +1,16 @@
 
+import exemplo00.ExemploJFrame01;
+import exemplo01.ExemploJButton01;
+import exemplo02.ExemploJLabel01;
+import exemplo03.ExemploJTextField01;
+import exemplo04.ExemploJButton02;
+import exemplo05.ExemploJComboBox01;
+import exemplo06.ExemploJTextArea;
+import exemplo07.ExemploJRadioButton01;
+import exemplo08.ExemploCheckBox01;
+import exemplo08.JFrameBaseInterface;
+import exemplo09.ExemploJTable01;
+import exemplo10.ExemploHospitalJFrame;
 import exemplo08.JFrameBaseInterface;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -52,10 +64,11 @@ public class ExemploTudo implements JFrameBaseInterface {
     @Override
     public void gerarTela() {
         jFrame = new JFrame("Hospital para seu momento");
-        jFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        jFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         jFrame.setLayout(null);
-        jFrame.setSize(600, 500);
+        jFrame.setSize(500, 500);
         jFrame.setLocationRelativeTo(null);
+        
 
     }
 
@@ -72,21 +85,22 @@ public class ExemploTudo implements JFrameBaseInterface {
         jFrame.add(jButton08);
         jFrame.add(jButton09);
         jFrame.add(jButton10);
+        
     }
 
     @Override
     public void instanciarComponentes() {
-        jButton00 = new JButton("Exemplo00");
-        jButton01 = new JButton("Exemplo01");
-        jButton02 = new JButton("Exemplo02");
-        jButton03 = new JButton("Exemplo03");
-        jButton04 = new JButton("Exemplo04");
-        jButton05 = new JButton("Exemplo05");
-        jButton06 = new JButton("Exemplo06");
-        jButton07 = new JButton("Exemplo07");
-        jButton08 = new JButton("Exemplo08");
-        jButton09 = new JButton("Exemplo09");
-        jButton10 = new JButton("Exemplo10");
+        jButton00 = new JButton("Exemplo 00");
+        jButton01 = new JButton("Exemplo 01");
+        jButton02 = new JButton("Exemplo 02");
+        jButton03 = new JButton("Exemplo 03");
+        jButton04 = new JButton("Exemplo 04");
+        jButton05 = new JButton("Exemplo 05");
+        jButton06 = new JButton("Exemplo 06");
+        jButton07 = new JButton("Exemplo 07");
+        jButton08 = new JButton("Exemplo 08");
+        jButton09 = new JButton("Exemplo 09");
+        jButton10 = new JButton("Exemplo 10");
 
     }
 
@@ -126,10 +140,10 @@ public class ExemploTudo implements JFrameBaseInterface {
     }
 
     public void acaoJButton00() {
-        jButton01.addActionListener(new ActionListener() {
+        jButton00.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                e
+                new exemplo00.ExemploJFrame01();
 
             }
         });
@@ -139,6 +153,7 @@ public class ExemploTudo implements JFrameBaseInterface {
         jButton01.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                new exemplo01.ExemploJButton01();
             }
         });
     }
@@ -147,6 +162,7 @@ public class ExemploTudo implements JFrameBaseInterface {
         jButton02.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                new exemplo02.ExemploJLabel01();
             }
         });
     }
@@ -155,6 +171,7 @@ public class ExemploTudo implements JFrameBaseInterface {
         jButton03.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                new exemplo03.ExemploJTextField01();
             }
         });
     }
@@ -163,6 +180,7 @@ public class ExemploTudo implements JFrameBaseInterface {
         jButton04.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                new exemplo04.ExemploJButton02();
             }
         });
     }
@@ -171,6 +189,7 @@ public class ExemploTudo implements JFrameBaseInterface {
         jButton05.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                new exemplo05.ExemploJComboBox01();
             }
         });
     }
@@ -179,6 +198,7 @@ public class ExemploTudo implements JFrameBaseInterface {
         jButton06.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                new exemplo06.ExemploJTextArea();
             }
         });
     }
@@ -187,6 +207,7 @@ public class ExemploTudo implements JFrameBaseInterface {
         jButton07.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                new exemplo07.ExemploJRadioButton01();
             }
         });
     }
@@ -195,6 +216,7 @@ public class ExemploTudo implements JFrameBaseInterface {
         jButton08.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                new exemplo08.ExemploCheckBox01();
             }
         });
     }
@@ -203,6 +225,7 @@ public class ExemploTudo implements JFrameBaseInterface {
         jButton09.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                new exemplo09.ExemploJTable01();
             }
         });
     }
